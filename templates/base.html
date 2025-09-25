@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Kumbh Mela Management{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <a href="{{ url_for('index') }}" class="nav-brand">Kumbh Mela 2025</a>
+        <ul class="nav-links">
+          <li>
+            <a
+              href="{{ url_for('index') }}"
+              class="{{ 'active' if request.endpoint == 'index' else '' }}"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('book_ticket') }}"
+              class="{{ 'active' if request.endpoint == 'book_ticket' else '' }}"
+              >Book Ticket</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('view_ticket') }}"
+              class="{{ 'active' if request.endpoint == 'view_ticket' else '' }}"
+              >View Ticket</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+      <p>&copy; {{ now.year }} Kumbh Mela Management. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

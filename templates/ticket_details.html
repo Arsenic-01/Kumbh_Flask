@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block title %} Ticket #{{ ticket.id }} - Kumbh Mela
+Management {% endblock %} {% block content %}
+<div class="ticket-container">
+  <div class="ticket-header">
+    <h2>Booking Confirmation</h2>
+    <p>Your ticket is confirmed. Please save this for your records.</p>
+  </div>
+  <div class="ticket-body">
+    <div class="ticket-info">
+      <span>Ticket ID</span>
+      <strong>#{{ ticket.id }}</strong>
+    </div>
+    <div class="ticket-info">
+      <span>Name</span>
+      <strong>{{ ticket.name }}</strong>
+    </div>
+    <div class="ticket-info">
+      <span>ID Proof Provided</span>
+      <strong>{{ ticket.id_proof }}</strong>
+    </div>
+    <div class="ticket-info">
+      <span>Ticket Type</span>
+      <strong class="ticket-type-badge">{{ ticket.ticket_type }}</strong>
+    </div>
+    <div class="ticket-info">
+      <span>Booking Time</span>
+      <strong>{{ ticket.booking_time.strftime('%Y-%m-%d %I:%M %p') }}</strong>
+    </div>
+  </div>
+  <div class="ticket-footer">
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+  </div>
+</div>
+{% endblock %}

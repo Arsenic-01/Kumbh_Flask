@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %} Home - Kumbh Mela Management {%
+endblock %} {% block content %}
+<section class="hero-section">
+  <h1>Welcome to the Kumbh Mela Management System</h1>
+  <p>
+    Your centralized portal for booking and managing your sacred journey. Secure
+    your place at the largest spiritual gathering on Earth.
+  </p>
+  <div class="cta-buttons">
+    <a href="{{ url_for('book_ticket') }}" class="btn btn-primary"
+      >Book a Ticket</a
+    >
+    <a href="{{ url_for('view_ticket') }}" class="btn btn-secondary"
+      >View Your Ticket</a
+    >
+  </div>
+</section>
+{% endblock %}

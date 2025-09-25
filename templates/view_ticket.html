@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %} View Ticket - Kumbh Mela Management
+{% endblock %} {% block content %}
+<div class="form-container">
+  <h2>View Your Ticket</h2>
+  <form method="post">
+    <div class="form-group">
+      <label for="ticket_id">Enter Ticket ID</label>
+      <input
+        type="number"
+        id="ticket_id"
+        name="ticket_id"
+        placeholder="e.g., 123"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Find Ticket</button>
+  </form>
+</div>
+{% endblock %}
